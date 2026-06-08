@@ -1,0 +1,17 @@
+# BrainPower AI Investor Portal
+
+> BrainPower AI is an AI-powered Decision Intelligence System (DIS) that helps individuals and teams make smarter, faster, and more confident decisions. The Investor Portal provides public information for prospective investors, concept education, and session booking.
+
+## Important URLs
+
+- /: Home — overview of BrainPower AI, product highlights, and key metrics
+- /investors: Investor Relations — financial data, market opportunity, team, and investment thesis
+- /book: Book a Session — schedule a discovery or demo call with the BrainPower AI team
+- /concepts/systemic-thinking: Systemic Thinking — educational content on how BrainPower AI applies systemic thinking principles
+- /concepts/cognitive-biases: Cognitive Biases — how BrainPower AI helps users recognize and correct cognitive biases
+- /concepts/decision-intelligence: Decision Intelligence — the core framework powering BrainPower AI's decision-support engine
+- /concepts/mental-models: Mental Models — the library of mental models integrated into BrainPower AI
+
+## About
+
+BrainPower AI is designed to improve decision quality for individuals, teams, and enterprises. It combines AI reasoning with structured mental models, cognitive bias detection, and systemic thinking frameworks to deliver clear, actionable decision support. The company is actively seeking investment to accelerate product development and market expansion.

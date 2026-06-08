@@ -1,0 +1,21 @@
+kind = "web"
+previewPath = "/"
+title = "BrainPower AI Investor Portal"
+version = "1.0.0"
+id = "artifacts/portal"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 8081
+
+[services.development]
+run = "pnpm --filter @workspace/portal run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/portal", "run", "build" ]
+run = "pnpm --filter @workspace/portal run start"
+
+[services.env]
+PORT = "8081"
