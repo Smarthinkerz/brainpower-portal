@@ -1547,13 +1547,18 @@ export default function Investors() {
               className="text-4xl md:text-5xl font-bold mb-6 text-white"
               variants={fadeInUp}
             >
-              Traction & Growth
+              {/* Was "Traction & Growth / Strong early indicators demonstrating
+                * clear demand". There is no traction to report — the FAQ lower
+                * on this same page states zero paying users and zero MRR — and
+                * "clear demand" was not measured. The section now describes the
+                * engine, which is what actually exists and can be checked. */}
+              Engine Verification
             </motion.h2>
-            <motion.p 
+            <motion.p
               className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto"
               variants={fadeInUp}
             >
-              Strong early indicators demonstrating clear demand for structured intelligence systems
+              What the system computes, and how that is held to account
             </motion.p>
           </motion.div>
 
