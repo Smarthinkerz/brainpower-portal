@@ -88,7 +88,7 @@ export default function Investors() {
       instrument: 'SAFE / Convertible',
       intendedFor: 'Early supporters',
       timeHorizon: '24–48 months',
-      expectedMultiple: 'Target upside scenario (no guarantees)',
+      informationRights: 'Quarterly updates, early beta access',
       useOfFunds: 'Product hardening, validation',
       benefits: ['Equity stake', 'Quarterly updates', 'Early beta access']
     },
@@ -99,7 +99,7 @@ export default function Investors() {
       instrument: 'SAFE / Convertible',
       intendedFor: 'Early angels',
       timeHorizon: '24–36 months',
-      expectedMultiple: 'Target upside scenario',
+      informationRights: 'Quarterly updates, priority support',
       useOfFunds: 'Monetization engine, B2B pilots',
       benefits: ['Equity stake', 'Quarterly updates', 'Priority support', 'Investor community access']
     },
@@ -110,7 +110,7 @@ export default function Investors() {
       instrument: 'SAFE / Equity',
       intendedFor: 'Strategic angels',
       timeHorizon: '18–36 months',
-      expectedMultiple: 'Target upside scenario',
+      informationRights: 'Monthly updates, advisory role, roadmap input',
       useOfFunds: 'Revenue acceleration',
       isPopular: true,
       benefits: ['Equity stake', 'Monthly updates', 'Advisory role', 'Product roadmap input']
@@ -122,7 +122,7 @@ export default function Investors() {
       instrument: 'SAFE / Equity',
       intendedFor: 'Enterprise partners',
       timeHorizon: '18–30 months',
-      expectedMultiple: 'Target upside scenario',
+      informationRights: 'Weekly updates, board observer rights',
       useOfFunds: 'B2B contracts, integrations',
       benefits: ['Strategic equity', 'Weekly updates', 'Board observer rights', 'Strategic partnerships', 'Custom integration support']
     },
@@ -133,7 +133,7 @@ export default function Investors() {
       instrument: 'SAFE / Equity (Lead Investor Rights)',
       intendedFor: 'Lead investors',
       timeHorizon: '12–30 months',
-      expectedMultiple: 'Target upside scenario',
+      informationRights: 'Direct founder access, board seat',
       useOfFunds: 'Market authority, enterprise scale',
       benefits: ['Major equity stake', 'Direct founder access', 'Board seat', 'Co-investment rights']
     }
@@ -236,7 +236,11 @@ export default function Investors() {
       faqs: [
         {
           question: "What traction do you currently have (paying users, revenue, active users, contracts)?",
-          answer: "As of 28 Feb 2026, Brainpower AI is pre-launch with zero current revenue and users. There are 0 paying users and OMR 0 in MRR, with a prototype in internal testing and early feedback from 5 founder-network testers on workflow usability. The enterprise pipeline currently consists of informal discussions with 2 potential GCC partners for post-launch pilots. Full details are provided in the 'Current Traction' section of the Topline Investor Brief."
+          // The dated "As of 28 Feb 2026" opener was removed rather than
+          // refreshed: a date on a static page goes stale silently, and a stale
+          // date on a traction disclosure is worse than none. The disclosure
+          // itself is accurate and unchanged.
+          answer: "Brainpower AI is pre-launch with zero current revenue and users. There are 0 paying users and OMR 0 in MRR, with a prototype in internal testing and early feedback from 5 founder-network testers on workflow usability. The enterprise pipeline currently consists of informal discussions with 2 potential GCC partners for post-launch pilots. Full details are provided in the 'Current Traction' section of the Topline Investor Brief."
         },
         {
           question: "What are the exact financial projections for the next 12, 24, and 36 months?",
@@ -1406,8 +1410,8 @@ export default function Investors() {
                       <p className="text-sm text-muted-foreground">{tier.timeHorizon}</p>
                     </div>
                     <div>
-                      <p className="text-sm font-semibold mb-1">Expected Outcome</p>
-                      <p className="text-sm text-[#00d4ff] font-bold">{tier.expectedMultiple}</p>
+                      <p className="text-sm font-semibold mb-1">Information Rights</p>
+                      <p className="text-sm text-[#00d4ff] font-bold">{tier.informationRights}</p>
                     </div>
                     <Separator />
                     <div>
@@ -1562,10 +1566,10 @@ export default function Investors() {
             className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
           >
             {[
-              { label: 'Active Users', value: 'Growing', icon: <Users className="h-8 w-8" /> },
-              { label: 'Revenue Growth', value: 'Strong', icon: <DollarSign className="h-8 w-8" /> },
-              { label: 'Retention', value: 'High', icon: <TrendingUp className="h-8 w-8" /> },
-              { label: 'Enterprise Interest', value: 'Active', icon: <Award className="h-8 w-8" /> }
+              { label: 'Simulations Per Decision', value: '10,000', icon: <TrendingUp className="h-8 w-8" /> },
+              { label: 'Probability Distributions', value: '8', icon: <TrendingUp className="h-8 w-8" /> },
+              { label: 'Advisory Frameworks', value: '10', icon: <Users className="h-8 w-8" /> },
+              { label: 'Deterministic Output', value: '100%', icon: <Award className="h-8 w-8" /> }
             ].map((metric) => (
               <motion.div key={metric.label} variants={fadeInUp}>
                 <Card className="text-center">

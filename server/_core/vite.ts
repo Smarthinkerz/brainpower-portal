@@ -40,10 +40,10 @@ const ROUTE_META: Record<string, RouteMeta> = {
   <section>
     <h2>Key Metrics</h2>
     <ul>
-      <li><strong>87% improvement in Decision Clarity</strong> — Improve decision clarity through structured frameworks</li>
-      <li><strong>42% reduction in Cognitive Load</strong> — Reduce cognitive overload in complex environments</li>
-      <li><strong>3.2× Thinking Structure</strong> — Structure complex thinking with measurable depth</li>
-      <li><strong>12 Outcomes Simulated</strong> — Simulate and visualize outcomes before acting</li>
+      <li><strong>10,000 Simulations Per Decision</strong> — Seeded Monte Carlo iterations across the full range of outcomes</li>
+      <li><strong>8 Probability Distributions</strong> — Model uncertainty the way it actually behaves, not a single guess</li>
+      <li><strong>10 Advisory Frameworks</strong> — Consensus engine returning GO, NO-GO or CONDITIONAL-GO with a disagreement map</li>
+      <li><strong>100% Reproducible</strong> — The same inputs always produce byte-identical output</li>
     </ul>
   </section>
   <section>

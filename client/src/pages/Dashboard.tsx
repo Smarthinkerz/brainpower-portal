@@ -47,7 +47,7 @@ export default function Dashboard() {
       instrument: 'SAFE / Convertible',
       intendedFor: 'Early supporters',
       timeHorizon: '24–48 months',
-      expectedMultiple: '5×–10×',
+      informationRights: 'Quarterly updates',
       useOfFunds: 'Product hardening, validation',
       benefits: ['Equity stake', 'Quarterly updates', 'Early access to beta features']
     },
@@ -58,7 +58,7 @@ export default function Dashboard() {
       instrument: 'SAFE / Convertible',
       intendedFor: 'Early angels',
       timeHorizon: '24–36 months',
-      expectedMultiple: '7×–12×',
+      informationRights: 'Quarterly updates, priority support',
       useOfFunds: 'Monetization engine, B2B pilots',
       benefits: ['Equity stake', 'Quarterly updates', 'Priority support', 'Investor community access']
     },
@@ -69,7 +69,7 @@ export default function Dashboard() {
       instrument: 'Angel Equity / Lead SAFE',
       intendedFor: 'Strategic angels',
       timeHorizon: '18–36 months',
-      expectedMultiple: '8×–15×',
+      informationRights: 'Monthly updates, advisory role, roadmap input',
       useOfFunds: 'Revenue acceleration',
       isPopular: true,
       benefits: ['Equity stake', 'Monthly updates', 'Advisory role', 'Networking events', 'Product roadmap input']
@@ -81,7 +81,7 @@ export default function Dashboard() {
       instrument: 'Strategic Angel Equity',
       intendedFor: 'Enterprise partners',
       timeHorizon: '18–30 months',
-      expectedMultiple: '10×–20×',
+      informationRights: 'Weekly updates, board observer rights',
       useOfFunds: 'B2B contracts, integrations',
       benefits: ['Significant equity stake', 'Weekly updates', 'Board observer rights', 'Strategic partnership opportunities', 'Custom integration support']
     },
@@ -92,7 +92,7 @@ export default function Dashboard() {
       instrument: 'Strategic / Founding Lead',
       intendedFor: 'Lead investors',
       timeHorizon: '12–30 months',
-      expectedMultiple: '12×–25×',
+      informationRights: 'Direct founder access, board seat',
       useOfFunds: 'Market authority, enterprise scale',
       benefits: ['Major equity stake', 'Direct founder access', 'Board seat', 'Co-branding opportunities', 'First right of refusal on future rounds', 'Custom terms available']
     }
@@ -235,9 +235,15 @@ export default function Dashboard() {
                         <p className="text-sm font-semibold mb-1">Timeline</p>
                         <p className="text-sm text-muted-foreground">{band.timeHorizon}</p>
                       </div>
+                      {/* Was "Expected Multiple", showing invented figures of
+                        * 5x-10x through 12x-25x. Nothing produced those numbers,
+                        * and a forward-looking return figure shown to a
+                        * prospective investor is not a marketing claim. Replaced
+                        * with the information rights each band actually confers,
+                        * which are real and already listed in the agreement. */}
                       <div>
-                        <p className="text-sm font-semibold mb-1">Expected Multiple</p>
-                        <p className="text-sm text-primary font-bold">{band.expectedMultiple}</p>
+                        <p className="text-sm font-semibold mb-1">Information Rights</p>
+                        <p className="text-sm text-muted-foreground">{band.informationRights}</p>
                       </div>
                       <Separator />
                       <div>
@@ -464,13 +470,41 @@ export default function Dashboard() {
               </CardContent>
             </Card>
 
-            {/* Key Metrics */}
+            {/* Engine Verification
+             *
+             * This block previously showed Active Users 10,000+, ARR $50K, MoM
+             * Growth 40% and Retention 95%. The company has none of those: the
+             * traction answer on /investors states plainly that there are zero
+             * paying users and zero MRR. The site was contradicting its own
+             * disclosure, and the false version was the one on the dashboard.
+             *
+             * Everything below is traceable. Sources:
+             *   10,000  default iterations in simulation-engine.ts, asserted by
+             *           iterations-assertion.test.ts
+             *        8  validTypes in simulation-engine.ts — point, uniform,
+             *           triangular, normal, lognormal, pert, bernoulli,
+             *           categorical
+             *       10  the ADVISORS array in advisory-board.router.ts
+             *     100%  seeded RNG plus deterministicResultHash()
+             *       31  determinism and invariant tests, measured by running
+             *           them, not by counting files: 6 files, 31 passed
+             *       21  routers that actually invoke an LLM. Deliberately not
+             *           the 51 registered namespaces — that count includes
+             *           auth, billing and usage plumbing, and calling those
+             *           "AI modules" would be the same inflation this block
+             *           was written to remove
+             *        5  locales in lib/i18n.ts, each with all 161 keys
+             */}
+            <h3 className="text-lg font-semibold mb-4">Engine Verification</h3>
             <div className="grid md:grid-cols-4 gap-6">
               {[
-                { label: 'Active Users', value: '10,000+', icon: <Users className="h-6 w-6" /> },
-                { label: 'ARR', value: '$50K', icon: <TrendingUp className="h-6 w-6" /> },
-                { label: 'MoM Growth', value: '40%', icon: <TrendingUp className="h-6 w-6" /> },
-                { label: 'Retention', value: '95%', icon: <CheckCircle className="h-6 w-6" /> }
+                { label: 'Simulations Per Decision', value: '10,000', icon: <TrendingUp className="h-6 w-6" /> },
+                { label: 'Probability Distributions', value: '8', icon: <TrendingUp className="h-6 w-6" /> },
+                { label: 'Advisory Frameworks', value: '10', icon: <Users className="h-6 w-6" /> },
+                { label: 'Deterministic', value: '100%', icon: <CheckCircle className="h-6 w-6" /> },
+                { label: 'Determinism & Invariant Tests Passing', value: '31', icon: <CheckCircle className="h-6 w-6" /> },
+                { label: 'AI Modules Live', value: '21', icon: <TrendingUp className="h-6 w-6" /> },
+                { label: 'Languages Supported', value: '5', icon: <Users className="h-6 w-6" /> }
               ].map((metric) => (
                 <Card key={metric.label}>
                   <CardHeader>

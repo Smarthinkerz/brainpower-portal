@@ -134,10 +134,24 @@ export default function BookingPage() {
             <p className="text-slate-300 mb-6 leading-relaxed">
               Unlike ChatGPT and other AI assistants, which focus on generating text or answering questions, Brain Power AI is purpose-built for <strong className="text-white">strategic decision-making and execution planning.</strong>
             </p>
+            {/* This block previously read "ROI Potential ... $2,500 Projected
+              * ROI between 3.5x and 10x within 24-36 months". Nothing produced
+              * those figures, and a projected return shown on a public page to
+              * prospective investors is not merely a marketing claim. Replaced
+              * with what the engine verifiably does. Sources: 10,000 default
+              * iterations in simulation-engine.ts; the 8-entry validTypes list;
+              * the 10-entry ADVISORS array; seeded RNG with
+              * deterministicResultHash(), covered by 31 passing determinism and
+              * invariant tests. */}
             <div className="bg-white/5 rounded-xl p-5 border border-white/10">
-              <h3 className="font-semibold text-white mb-3">ROI Potential</h3>
-              <p className="text-slate-300 text-sm mb-3">For investors, Brain Power AI offers strong early-stage upside:</p>
-              <p className="text-slate-300 text-sm"><strong className="text-white">Investment Example:</strong> $2,500 Projected ROI between <strong className="text-cyan-400">3.5× and 10×</strong> within <strong className="text-cyan-400">24–36 months</strong>, depending on subscriber growth and enterprise adoption.</p>
+              <h3 className="font-semibold text-white mb-3">What the Engine Does</h3>
+              <p className="text-slate-300 text-sm mb-3">Every figure the system reports is computed, never generated:</p>
+              <ul className="text-slate-300 text-sm space-y-1 list-disc list-inside">
+                <li><strong className="text-white">10,000</strong> seeded Monte Carlo iterations per decision, across <strong className="text-white">8</strong> probability distributions</li>
+                <li><strong className="text-white">10</strong> advisory frameworks returning GO, NO-GO or CONDITIONAL-GO with a disagreement map</li>
+                <li><strong className="text-white">Byte-identical output</strong> for identical inputs, held by 31 passing determinism and invariant tests</li>
+                <li>A sufficiency gate that returns clarifying questions instead of a verdict when the input is too thin</li>
+              </ul>
             </div>
           </div>
 

@@ -58,10 +58,23 @@ const concepts = [
 ];
 
 const metrics = [
-  { label: "Decision Clarity", value: 87, suffix: "↑", desc: "Improve decision clarity through structured frameworks" },
-  { label: "Cognitive Load", value: 42, suffix: "↓", desc: "Reduce cognitive overload in complex environments" },
-  { label: "Thinking Structure", value: 3.2, suffix: "×", precision: 1, desc: "Structure complex thinking with measurable depth" },
-  { label: "Outcomes Simulated", value: 12, suffix: "", desc: "Simulate and visualize outcomes before acting" },
+  // Every figure here is traceable to the engine. Sources, in order:
+  //   10,000  default iterations in simulation-engine.ts, asserted by
+  //           iterations-assertion.test.ts (REQUIRED_ITERATIONS = 10000)
+  //        8  the validTypes list in simulation-engine.ts — point, uniform,
+  //           triangular, normal, lognormal, pert, bernoulli, categorical
+  //       10  the ADVISORS array in advisory-board.router.ts, whose consensus
+  //           output includes a disagreementMap field
+  //     100%  seeded RNG plus deterministicResultHash(), covered by four
+  //           determinism tests
+  //
+  // The previous values (87, 42, 3.2, 12) measured nothing. The arrows were
+  // worse than the numbers: they implied movement against a baseline that was
+  // never recorded.
+  { label: "Simulations Per Decision", value: 10000, suffix: "", desc: "Seeded Monte Carlo iterations across the full range of outcomes" },
+  { label: "Probability Distributions", value: 8, suffix: "", desc: "Model uncertainty the way it actually behaves, not a single guess" },
+  { label: "Advisory Frameworks", value: 10, suffix: "", desc: "Consensus engine returning GO, NO-GO or CONDITIONAL-GO with a disagreement map" },
+  { label: "Reproducible", value: 100, suffix: "%", desc: "The same inputs always produce byte-identical output" },
 ];
 
 // Neural Canvas Animation
@@ -280,7 +293,12 @@ function AnimatedNumber({ value, precision = 0, suffix = "" }: { value: number; 
   useEffect(() => {
     return spring.on("change", (latest) => {
       if (ref.current) {
-        ref.current.textContent = `${latest.toFixed(precision)}${suffix}`;
+        // Grouped thousands: toFixed() alone rendered the iteration count as
+        // "10000", which reads as a raw dump rather than a figure.
+        ref.current.textContent = `${latest.toLocaleString("en-US", {
+          minimumFractionDigits: precision,
+          maximumFractionDigits: precision,
+        })}${suffix}`;
       }
     });
   }, [spring, precision, suffix]);
