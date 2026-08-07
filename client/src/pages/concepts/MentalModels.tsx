@@ -240,7 +240,7 @@ export default function MentalModels() {
         <p className="text-gray-500 text-sm">© {new Date().getFullYear()} BrainPower AI. All rights reserved.</p>
           <p className="mt-4 text-xs text-gray-500">
             Part of the{" "}
-            <a href="https://smarhinkerz.com" className="hover:text-[#7dd3fc] transition-colors underline-offset-2 hover:underline">
+            <a href="https://smarthinkerz.com" className="hover:text-[#7dd3fc] transition-colors underline-offset-2 hover:underline">
               SmarThinkerz Unified Intelligence Hub
             </a>
           </p>

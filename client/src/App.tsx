@@ -27,7 +27,7 @@ const BookingAdmin = lazy(() => import("./pages/BookingAdmin"));
 function SmartThinkerzHubLink() {
   return (
     <a
-      href="https://smarhinkerz.com"
+      href="https://smarthinkerz.com"
       className="fixed top-4 left-4 z-50 inline-flex items-center gap-1.5 text-sm font-medium text-gray-300 hover:text-[#7dd3fc] transition-colors duration-200"
       title="Back to SmarThinkerz Hub"
     >
